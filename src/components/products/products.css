@@ -1,0 +1,29 @@
+.card_product {
+  position: relative;
+  height: 350px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_product h1 {
+  font-size: 45px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #fff;
+  z-index: 99;
+}
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.39);
+}
+
+img {
+  border-radius: 10px;
+}

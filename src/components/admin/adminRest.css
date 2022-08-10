@@ -1,0 +1,11 @@
+.modal1 {
+  position: absolute;
+  top: 20%;
+  height: 300px;
+  transition: all 1s linear;
+}
+
+.active {
+  transform: translateY(-400%);
+  transition: all 1s linear;
+}
