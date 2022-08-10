@@ -9,6 +9,7 @@ const restaurants = gql`
     restaraunt(id: $restarauntId) {
       id
       name
+      img
     }
   }
 `;
@@ -25,10 +26,11 @@ const Products = () => {
           data.restaraunt.map((e) => (
             <div className="col-5 my-3" key={e.id}>
               <Link to={`/food/${e.id}`}>
+                {console.log(e)}
                 <div
                   className="card_product card"
                   style={{
-                    backgroundImage: `url(${Img})`,
+                    backgroundImage: `url(${e.img})`,
                   }}
                 >
                   <div className="bg title_1"></div>

@@ -12,6 +12,7 @@ const restaurants = gql`
       id
       price
       res
+      img
     }
   }
 `;
@@ -45,7 +46,17 @@ const Foods = () => {
         {data?.products &&
           data?.products?.map((e) => (
             <div className="card p-5 d-flex flex-row my-3" key={e.id}>
-              <img src={Img} alt="" width={300} height={200} />
+              <div
+                className="card_product card"
+                style={{
+                  backgroundImage: `url(${e.img})`,
+                  width: 400,
+                  height: 200,
+                }}
+              >
+                <div className="bg title_1"></div>
+                <h1>{e.name}</h1>
+              </div>
               <div className="w-100 d-flex justify-content-center align-items-center flex-column">
                 <h2 className="text-center">{e.name}</h2>
                 <h3 className="text-center">Narxi {e.price}</h3>

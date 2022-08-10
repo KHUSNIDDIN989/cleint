@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./adminRest.css";
 import { useQuery, useMutation, gql } from "@apollo/client";
+import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { storage } from "../../utils/firebase/firebase";
+
+import { v4 } from "uuid";
 
 const products = gql`
   query {
@@ -48,22 +52,36 @@ const AddProduct = () => {
   const [addPro] = useMutation(addproduct);
   const [deletePro] = useMutation(DeletePro);
   const [btn, setBtn] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { name, img, price, select } = e.target.elements;
+    const { name, price, select } = e.target.elements;
 
     addPro({
       variables: {
         name: name.value,
-        img: "",
+        img: imageUrl,
         price: +price.value,
         res: select.value,
       },
     });
     window.location.reload();
     e.target.reset();
+  };
+
+  const handleImg = (e) => {
+    e.preventDefault();
+
+    const imageUpload = e.target.files[0];
+
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snaphsot) => {
+      getDownloadURL(snaphsot.ref).then((url) => {
+        setImageUrl(url);
+      });
+    });
   };
 
   const handleDelete = (e) => {
@@ -135,6 +153,7 @@ const AddProduct = () => {
                   type="file"
                   name="img"
                   id=""
+                  onChange={(e) => handleImg(e)}
                   className="form-control my-4"
                 />
                 <input
@@ -152,7 +171,12 @@ const AddProduct = () => {
                   ))}
                 </select>
 
-                <button className="btn btn-primary m-3">Add</button>
+                <button
+                  className="btn btn-primary m-3"
+                  disabled={imageUrl ? false : true}
+                >
+                  Add
+                </button>
                 <button
                   className="btn btn-danger m-3"
                   onClick={(e) => setBtn(false)}
