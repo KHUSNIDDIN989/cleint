@@ -83,11 +83,20 @@ const Carzinka = () => {
       <div className="col-6 scroll">
         {order?.map((e) => (
           <div className="card p-5 d-flex flex-row my-3" key={Math.random()}>
-            {console.log(e)}
-            <img src={Img} alt="" width={300} height={200} />
+            <div
+              className="card_product card"
+              style={{
+                backgroundImage: `url(${e.img})`,
+                width: 400,
+                height: 200,
+              }}
+            >
+              <div className="bg title_1"></div>
+              <h1>{e.name}</h1>
+            </div>
             <div className="w-100 d-flex justify-content-center align-items-center flex-column">
-              <h2 className="text-center">Lavash</h2>
-              <h3 className="text-center">Narxi 20 000</h3>
+              <h2 className="text-center">{e.name}</h2>
+              <h3 className="text-center">{e.price}</h3>
               <div className="d-flex w-100 justify-content-center">
                 <button
                   className="btn btn-danger mx-3"
@@ -100,9 +109,9 @@ const Carzinka = () => {
                   type="number"
                   className="form-control w-25"
                   name=""
-                  value={1}
                   id={e.id}
                   onKeyUp={(evt) => handleChageInput(evt, e)}
+                  required
                 />
               </div>
             </div>
@@ -121,18 +130,21 @@ const Carzinka = () => {
             type="text"
             className="form-control my-3"
             placeholder="Ism Famliya"
+            required
           />
           <input
             name="adres"
             type="text"
             className="form-control my-3"
             placeholder="Manzilni kiriting"
+            required
           />
           <input
             name="number"
             type="number"
             className="form-control my-3"
             placeholder="Tel Raqamingizni kiriting"
+            required
           />
           <button className="btn btn-primary w-100 mt-4">Byutma Berish</button>
         </form>
