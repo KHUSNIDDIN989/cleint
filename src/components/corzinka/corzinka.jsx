@@ -100,6 +100,7 @@ const Carzinka = () => {
                   type="number"
                   className="form-control w-25"
                   name=""
+                  value={1}
                   id={e.id}
                   onKeyUp={(evt) => handleChageInput(evt, e)}
                 />

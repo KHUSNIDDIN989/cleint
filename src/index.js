@@ -5,6 +5,7 @@ import App from "./App";
 import "./index.css";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { UseContex } from "./context/count";
+import { AuthContex } from "./context/AuthContex";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
@@ -17,7 +18,9 @@ root.render(
     <ApolloProvider client={client}>
       <BrowserRouter>
         <UseContex>
-          <App />
+          <AuthContex>
+            <App />
+          </AuthContex>
         </UseContex>
       </BrowserRouter>
     </ApolloProvider>
