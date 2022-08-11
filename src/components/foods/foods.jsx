@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Img from "../../assets/images/miliy.jpg";
+import Wifi from "../../assets/images/wifi.svg";
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -42,6 +42,11 @@ const Foods = () => {
 
   return (
     <div>
+      {loading && (
+        <div className="wifi d-flex w-100 h-100 justify-content-center align-items-center ">
+          <img class="ldld" src={Wifi}></img>
+        </div>
+      )}
       <div className="col">
         {data?.products &&
           data?.products?.map((e) => (

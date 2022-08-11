@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import Img from "../../assets/images/miliy.jpg";
+import Wifi from "../../assets/images/wifi.svg";
 import { useQuery, gql } from "@apollo/client";
 
 import "./products.css";
@@ -21,6 +21,11 @@ const Products = () => {
   console.log();
   return (
     <div>
+      {loading && (
+        <div className="wifi d-flex w-100 h-100 justify-content-center align-items-center ">
+          <img class="ldld" src={Wifi}></img>
+        </div>
+      )}
       <div className="row justify-content-around mt-5">
         {data &&
           data.restaraunt.map((e) => (
