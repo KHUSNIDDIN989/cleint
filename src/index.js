@@ -8,7 +8,7 @@ import { UseContex } from "./context/count";
 import { AuthContex } from "./context/AuthContex";
 
 const client = new ApolloClient({
-  uri: "https://restarant1.herokuapp.com/",
+  uri: "http://localhost:4004/graphql",
   cache: new InMemoryCache(),
 });
 

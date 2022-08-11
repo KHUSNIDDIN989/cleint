@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import Img from "../../assets/images/miliy.jpg";
 import { useMutation, gql } from "@apollo/client";
 
 const orders = gql`
@@ -27,7 +26,6 @@ const orders = gql`
 `;
 
 const Carzinka = () => {
-  // const [newOrder, setNewOrder] = useState({});
   const [order1, setOrder] = useState([]);
 
   const [newOrder] = useMutation(orders);

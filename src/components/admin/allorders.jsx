@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./adminRest.css";
 import { useQuery, useMutation, gql } from "@apollo/client";
 import Wifi from "../../assets/images/wifi.svg";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./adminRest.css";
 import { useQuery, useMutation, gql } from "@apollo/client";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../utils/firebase/firebase";
 import Wifi from "../../assets/images/wifi.svg";
 

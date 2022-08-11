@@ -1,22 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./body.css";
-import { useQuery, gql } from "@apollo/client";
 
-// const restaurants = gql`
-//   query ($restarauntId: ID!) {
-//     restaraunt(id: $restarauntId) {
-//       id
-//       name
-//     }
-//   }
-// `;
 const Body = () => {
-  // const [cotegorys, setCotegory] = useState("");
-  // const { data, loading, error } = useQuery(restaurants, {
-  //   // variables: { cotegory: cotegorys },
-  // });
-  // console.log(cotegorys);
   return (
     <div className="row justify-content-around mt-5">
       <div className="col-5">

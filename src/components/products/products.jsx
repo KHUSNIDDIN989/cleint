@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useParams } from "react-router-dom";
 import Wifi from "../../assets/images/wifi.svg";
 import { useQuery, gql } from "@apollo/client";
