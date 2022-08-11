@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./adminRest.css";
 import { useQuery, useMutation, gql } from "@apollo/client";
+import Wifi from "../../assets/images/wifi.svg";
 
 const orders = gql`
   query {
@@ -38,6 +39,11 @@ const AllOrder = () => {
 
   return (
     <div className="p-4 mt-5">
+      {loading && (
+        <div className="wifi_admin d-flex w-100 h-100 justify-content-center align-items-center ">
+          <img class="ldld" src={Wifi}></img>
+        </div>
+      )}
       <table className="table-hover table">
         <thead>
           <tr>

@@ -34,3 +34,10 @@
   top: 0;
   background: #ffffff;
 }
+.wifi_admin {
+  width: 50vw !important;
+  height: 100vh !important;
+  position: absolute;
+  top: 0;
+  background: #ffffff01;
+}

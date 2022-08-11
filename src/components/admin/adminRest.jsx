@@ -3,6 +3,7 @@ import "./adminRest.css";
 import { useQuery, useMutation, gql } from "@apollo/client";
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../utils/firebase/firebase";
+import Wifi from "../../assets/images/wifi.svg";
 
 import { v4 } from "uuid";
 
@@ -89,6 +90,11 @@ const AdminRest = () => {
 
   return (
     <div className="p-4 mt-5">
+      {loading && (
+        <div className="wifi_admin d-flex w-100 h-100 justify-content-center align-items-center ">
+          <img class="ldld" src={Wifi}></img>
+        </div>
+      )}
       <table className="table-hover table">
         <thead>
           <tr>
